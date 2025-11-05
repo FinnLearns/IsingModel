@@ -1,0 +1,27 @@
+set terminal gif animate delay 1 size 800,600
+
+config = "0.900000" # input exact temperature
+run = "run1" # input name of run folder in which configuration results are stored
+
+outputString = "../" . run . "/results/" . config . ".gif"
+set output outputString
+
+configPath = "../" . run . "/configurations/" . config . ".txt"
+stats configPath nooutput
+
+set view map
+set autoscale
+set palette defined (-1 "orange", 1 "blue")
+set palette maxcolors 2
+set cbrange [-1:1]
+set pm3d
+unset surface
+unset border
+unset xtics
+unset ytics
+
+do for [i=0 : STATS_blocks-1] {
+    splot configPath index i matrix with pm3d notitle
+}
+
+unset output
