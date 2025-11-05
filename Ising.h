@@ -3,13 +3,10 @@
 #include <cmath>
 #include <ctime>
 #include <fstream>
-// #include <sstream>
 #include <string>
 #include <iostream>
 #include <random>
 #include <algorithm>
-// #include <numeric>
-// #include <sys/stat.h>
 #include <filesystem>
 
 namespace fs = std::filesystem;
